@@ -1,3 +1,13 @@
+void main() {
+  List shapes = [Circle(5), Rectangle(5, 10), Triangle(6, 10, 7, 6)];
+  for (var shape in shapes) {
+    print("Area: ${shape.calculateArea()}");
+    print("Perimeter: ${shape.calculatePerimeter()}");
+    print(shape.toString());
+    print("------");
+  }
+}
+
 abstract class Shape {
   double calculateArea();
   double calculatePerimeter();
@@ -45,11 +55,26 @@ class Rectangle extends Shape {
   }
 }
 
-void main() {
-  List shapes = [Circle(5), Rectangle(5, 10)];
-  for (var shape in shapes) {
-    print("Area: ${shape.calculateArea()}");
-    print("Perimeter: ${shape.calculatePerimeter()}");
-    print(shape.toString());
+class Triangle extends Shape {
+  double base;
+  double height;
+  double sideA;
+  double sideB;
+
+  Triangle(this.base, this.height, this.sideA, this.sideB);
+
+  @override
+  double calculateArea() {
+    return 0.5 * base * height;
+  }
+
+  @override
+  double calculatePerimeter() {
+    return sideA + sideB + base;
+  }
+
+  @override
+  String toString() {
+    return "triangle with height: $height base: $base sideA: $sideA sideB: $sideB";
   }
 }
