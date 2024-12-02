@@ -24,9 +24,32 @@ class Circle extends Shape {
   }
 }
 
+class Rectangle extends Shape {
+  double length;
+  double width;
+  Rectangle(this.length, this.width);
+
+  @override
+  double calculateArea() {
+    return length * width;
+  }
+
+  @override
+  double calculatePerimeter() {
+    return 2 * (length + width);
+  }
+
+  @override
+  String toString() {
+    return "Rectangle with length: $length width: $width";
+  }
+}
+
 void main() {
-  Shape circle = Circle(5.0);
-  print("Area: ${circle.calculateArea()}");
-  print("Perimeter: ${circle.calculatePerimeter()}");
-  print(circle.toString());
+  List shapes = [Circle(5), Rectangle(5, 10)];
+  for (var shape in shapes) {
+    print("Area: ${shape.calculateArea()}");
+    print("Perimeter: ${shape.calculatePerimeter()}");
+    print(shape.toString());
+  }
 }
