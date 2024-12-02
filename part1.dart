@@ -1,3 +1,4 @@
+// I created a list name shapes to shorten the code using for loop
 void main() {
   List shapes = [Circle(5), Rectangle(5, 10), Triangle(6, 10, 7, 6)];
   for (var shape in shapes) {
@@ -8,6 +9,7 @@ void main() {
   }
 }
 
+// I created abstract class name: Shape in this i created blueprints for shape
 abstract class Shape {
   double calculateArea();
   double calculatePerimeter();
